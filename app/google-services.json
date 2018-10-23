@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "329922371358",
+    "firebase_url": "https://my-appie-a2e18.firebaseio.com",
+    "project_id": "my-appie-a2e18",
+    "storage_bucket": "my-appie-a2e18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329922371358:android:5038e685f78d865f",
+        "android_client_info": {
+          "package_name": "com.rashmi.rrp.blogspot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329922371358-3rpf292tuimakbj22icgh2eu68k3aag5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rashmi.rrp.blogspot",
+            "certificate_hash": "3216bab594cdca851df293d44b7bc44cd1a29a2f"
+          }
+        },
+        {
+          "client_id": "329922371358-ia2hbeh610b1o4uk7i2t7ec1ktvjnff1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBZ3ppdT1gyBGyh-1XFSoBji1xzzPYefM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "329922371358-ia2hbeh610b1o4uk7i2t7ec1ktvjnff1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
