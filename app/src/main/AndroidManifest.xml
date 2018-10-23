@@ -6,7 +6,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     android:name=".MyApplication"
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,7 +30,10 @@
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".newPostActivity"
+        <activity
+            android:name=".newPostActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".CommentActivity"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

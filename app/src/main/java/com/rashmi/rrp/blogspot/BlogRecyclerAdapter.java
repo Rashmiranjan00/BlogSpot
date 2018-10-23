@@ -1,6 +1,7 @@
 package com.rashmi.rrp.blogspot;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -170,6 +171,33 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
             }
         });
 
+        holder.blogCommentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent commentIntent = new Intent(context, CommentActivity.class);
+                commentIntent.putExtra("blogPostId", blogPostId);
+                context.startActivity(commentIntent);
+
+            }
+        });
+
+        firebaseFirestore.collection("Posts/" + blogPostId + "/Comments").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+
+                if (!queryDocumentSnapshots.isEmpty()) {
+
+                    int count = queryDocumentSnapshots.size();
+                    holder.updateCommentsCount(count);
+
+                } else {
+                    holder.updateCommentsCount(0);
+                }
+
+            }
+        });
+
 
     }
 
@@ -188,12 +216,16 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
         private TextView blogDate;
         private ImageView blogLikeBtn;
         private TextView blogLikeCount;
+        private ImageView blogCommentBtn;
+        private TextView blogCommentCount;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
 
             blogLikeBtn = mView.findViewById(R.id.blogLikeBtn);
+            blogCommentBtn = mView.findViewById(R.id.blogCommentBtn);
+
         }
 
         public void setDescText(String descText) {
@@ -244,6 +276,12 @@ public class BlogRecyclerAdapter extends RecyclerView.Adapter<BlogRecyclerAdapte
 
         }
 
+        public void updateCommentsCount(int count) {
+
+            blogCommentCount = mView.findViewById(R.id.blogCommentCount);
+            blogCommentCount.setText(count + " comments");
+
+        }
     }
 
 }

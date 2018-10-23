@@ -59,24 +59,26 @@ public class MainActivity extends AppCompatActivity {
             notificationFragment = new NotificationFragment();
             profileFragment = new ProfileFragment();
 
-            replaceFragment(homeFragment);
+            initializeFragment();
 
             mainBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                    Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.mainContainer);
+
                     switch (item.getItemId()) {
 
                         case R.id.bottomActionHome:
-                            replaceFragment(homeFragment);
+                            replaceFragment(homeFragment, currentFragment);
                             return true;
 
                         case R.id.bottomActionNotification:
-                            replaceFragment(notificationFragment);
+                            replaceFragment(notificationFragment, currentFragment);
                             return true;
 
                         case R.id.bottomActionProfile:
-                            replaceFragment(profileFragment);
+                            replaceFragment(profileFragment, currentFragment);
                             return true;
 
                         default:
@@ -98,6 +100,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+    }
+
+    private void initializeFragment() {
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.mainContainer, homeFragment);
+        fragmentTransaction.add(R.id.mainContainer, notificationFragment);
+        fragmentTransaction.add(R.id.mainContainer, profileFragment);
+
+        fragmentTransaction.hide(notificationFragment);
+        fragmentTransaction.hide(profileFragment);
+
+        fragmentTransaction.commit();
 
     }
 
@@ -181,10 +197,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void replaceFragment(Fragment fragment) {
+    private void replaceFragment(Fragment fragment, Fragment currentFragment) {
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.mainContainer, fragment);
+
+        if (fragment == homeFragment) {
+
+            fragmentTransaction.hide(notificationFragment);
+            fragmentTransaction.hide(profileFragment);
+
+        }
+
+        if (fragment == notificationFragment) {
+
+            fragmentTransaction.hide(homeFragment);
+            fragmentTransaction.hide(profileFragment);
+
+        }
+
+        if (fragment == profileFragment) {
+
+            fragmentTransaction.hide(homeFragment);
+            fragmentTransaction.hide(notificationFragment);
+
+        }
+
+        fragmentTransaction.show(fragment);
         fragmentTransaction.commit();
 
     }
