@@ -5,5 +5,5 @@
     <color name="colorAccent">#273c75</color>
     <color name="whiteTransparentHalf">#80ffffff</color>
     <color name="likeBtnGray">#747474</color>
-    <color name="likeBtnAccent">#F44336</color>
+    <color name="likeBtnAccent">#f44336</color>
 </resources>

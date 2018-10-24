@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">BlogSpot</string>
     <string name="logologinpage">LogoLoginPage</string>
-    <string name="enter_email">Enter Email...</string>
-    <string name="enter_password">Enter Password...</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="enter_password">Enter Password</string>
     <string name="loginPageLogo">logologinpage</string>
     <string name="loginEmailDesc">enter_email</string>
     <string name="regBtnText">Create new account</string>
@@ -10,7 +10,7 @@
     <string name="regConfirmPassText">Confirm password</string>
     <string name="setupNameHint">Your name</string>
     <string name="setupBtnNameText">Save account name</string>
-    <string name="newDescriptionHint">Add description...</string>
+    <string name="newDescriptionHint">Add description</string>
     <string name="bottomHomeText">Home</string>
     <string name="bottomNotificationText">Notifications</string>
     <string name="bottomProfileText">Profile</string>

@@ -21,6 +21,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Username"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/commentImage"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,7 +31,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Loading Comment..."
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/commentImage"
         app:layout_constraintTop_toBottomOf="@+id/commentUsername" />
 
